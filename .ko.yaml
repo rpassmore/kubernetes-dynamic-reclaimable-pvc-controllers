@@ -1,0 +1,17 @@
+builds:
+- id: dynamic-pvc-provisioner
+  #dir: /src  # default is .
+  main: ./cmd/dynamic-pvc-provisioner
+  env:
+  - IMPORT_PATH="github.com/plumber-cd/kubernetes-dynamic-reclaimable-pvc-controllers"  
+  - RELEASE_STRING=dev
+  ldflags:  
+  - "-X ${IMPORT_PATH}.Version=${RELEASE_STRING}" 
+- id: reclaimable-pv-releaser
+  #dir: /src  # default is .
+  main: ./cmd/reclaimable-pv-releaser
+  env:
+  - IMPORT_PATH="github.com/plumber-cd/kubernetes-dynamic-reclaimable-pvc-controllers"  
+  - RELEASE_STRING=dev
+  ldflags:  
+  - "-X ${IMPORT_PATH}.Version=${RELEASE_STRING}" 
